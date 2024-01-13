@@ -11,7 +11,7 @@ using formula1.API.Data;
 namespace formula1.API.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20240108150412_initial")]
+    [Migration("20240113085026_initial")]
     partial class initial
     {
         /// <inheritdoc />
