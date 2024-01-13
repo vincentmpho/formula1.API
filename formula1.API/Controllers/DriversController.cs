@@ -37,10 +37,20 @@ namespace formula1.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddDriver(Driver driver)
         {
+            if (!ModelState.IsValid)
+            {
+                //return BadRequest(ModelState);
+
+                return StatusCode(StatusCodes.Status400BadRequest, ModelState);
+            }
+
             _context.Drivers.Add(driver);
             await _context.SaveChangesAsync();
-            return Ok();
+
+            return StatusCode(StatusCodes.Status200OK, AddDriver);
+            
         }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDriver(int id)
